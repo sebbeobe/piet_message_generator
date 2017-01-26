@@ -2,9 +2,13 @@ import numpy as np
 import scipy.misc as sm
 
 class Color(object):
-	def __init__(self, color_table=[1,0]):
-		self.color_table = color_table
-
+	
+	def __init__(self, color_table=None):
+		if color_table is None:
+			self.color_table = [1,0]
+		else:
+			self.color_table = color_table
+			
 	def RGB(self):
 		if self.color_table[1] == 0:
 			#Red
