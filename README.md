@@ -1,4 +1,4 @@
-# piet_message_generator
+# Piet code message generator
 Python code that takes a string input and returns code written in Piet that prints the input. 
 If the input is small enough it glues the Piet code into a picture with Plato reading a book about Piet.
 
