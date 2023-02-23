@@ -1,5 +1,6 @@
 import numpy as np
-import scipy.misc as sm
+from PIL import Image
+import imageio
 
 class Color(object):
 	
@@ -131,7 +132,7 @@ def draw_end(num):
 	pos_x = 0
 	piet_painting[pos_x:pos_x+12,pos_y:pos_y+5] = block
 
-message = raw_input("Write your message here: \n")
+message = input("Write your message here: \n")
 painting_len = len(message)*12 + 5
 piet_painting = np.zeros((12,painting_len,3), dtype=np.uint8)
 
@@ -142,10 +143,10 @@ for char in message:
 draw_end(i)
 
 if painting_len < 390:
-	plato_painting = sm.imread('Plato.png')
+	plato_painting = imageio.v2.imread('Plato.png')
 	plato_painting[0:12,0:painting_len] = piet_painting
-	plato_img = sm.toimage(plato_painting)
-	sm.imsave('plato_code.png', plato_img)
+	plato_img = Image.fromarray(plato_painting)
+	imageio.imwrite('plato_code.png', plato_img)
 
-img = sm.toimage(piet_painting)
-sm.imsave('piet_code_file.png', img)
+img = Image.fromarray(piet_painting)
+imageio.imwrite('piet_code_file.png', img)
