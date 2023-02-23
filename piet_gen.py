@@ -142,11 +142,11 @@ for char in message:
 	i += 1
 draw_end(i)
 
-#if painting_len < 390:
-#	plato_painting = sm.imread('Plato.png')
-#	plato_painting[0:12,0:painting_len] = piet_painting
-#	plato_img = sm.toimage(plato_painting)
-#	sm.imsave('plato_code.png', plato_img)
+if painting_len < 390:
+	plato_painting = imageio.v2.imread('Plato.png')
+	plato_painting[0:12,0:painting_len] = piet_painting
+	plato_img = Image.fromarray(plato_painting)
+	imageio.imwrite('plato_code.png', plato_img)
 
 img = Image.fromarray(piet_painting)
 imageio.imwrite('piet_code_file.png', img)
